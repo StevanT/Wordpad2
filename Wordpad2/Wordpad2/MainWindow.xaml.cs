@@ -33,8 +33,12 @@ namespace Wordpad2
 
 				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
 				cmbFontFamily.SelectedItem = temp;
-				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
-				cmbFontSize.Text = temp.ToString();
+                try
+				{
+					temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
+					cmbFontSize.Text = temp.ToString();
+				} catch(Exception exception) { }
+
 			}
             else
             {
