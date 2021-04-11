@@ -22,17 +22,25 @@ namespace Wordpad2
 
 		private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
 		{
-			object temp = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
-			btnBold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
-			temp = rtbEditor.Selection.GetPropertyValue(Inline.FontStyleProperty);
-			btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
-			temp = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
-			btnUnderline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
+			if (!rtbEditor.Selection.IsEmpty)
+			{
+				object temp = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
+				btnBold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
+				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontStyleProperty);
+				btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
+				temp = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+				btnUnderline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
 
-			temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
-			cmbFontFamily.SelectedItem = temp;
-			temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
-			cmbFontSize.Text = temp.ToString();
+				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+				cmbFontFamily.SelectedItem = temp;
+				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
+				cmbFontSize.Text = temp.ToString();
+			}
+            else
+            {
+				cmbFontFamily.SelectedIndex = -1;
+				cmbFontSize.Text = null;
+			}
 		}
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -67,7 +75,26 @@ namespace Wordpad2
 
 		private void cmbFontSize_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text);
+			if (cmbFontFamily.SelectedItem != null)
+				rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, cmbFontSize.Text);
 		}
-	}
+
+        private void Button_FontPlus(object sender, RoutedEventArgs e)
+        {
+			if (!rtbEditor.Selection.IsEmpty)
+			{
+                rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, Convert.ToString(Convert.ToInt32(cmbFontSize.Text) + 1));
+				cmbFontSize.Text = Convert.ToString(Convert.ToInt32(cmbFontSize.Text) + 1);
+			}
+		}
+
+        private void Button_FontMinus(object sender, RoutedEventArgs e)
+        {
+			if (!rtbEditor.Selection.IsEmpty)
+			{
+                rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, Convert.ToString(Convert.ToInt32(cmbFontSize.Text) - 1));
+				cmbFontSize.Text = Convert.ToString(Convert.ToInt32(cmbFontSize.Text) - 1);
+			}
+		}
+    }
 }

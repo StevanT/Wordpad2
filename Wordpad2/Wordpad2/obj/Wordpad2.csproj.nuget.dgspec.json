@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Helena\\source\\repos\\Petnica\\Wordpad2\\Wordpad2\\Wordpad2.csproj": {}
+    "C:\\Users\\Korisnik\\source\\repos\\petnica1\\Wordpad2\\Wordpad2\\Wordpad2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Helena\\source\\repos\\Petnica\\Wordpad2\\Wordpad2\\Wordpad2.csproj": {
+    "C:\\Users\\Korisnik\\source\\repos\\petnica1\\Wordpad2\\Wordpad2\\Wordpad2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Helena\\source\\repos\\Petnica\\Wordpad2\\Wordpad2\\Wordpad2.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\source\\repos\\petnica1\\Wordpad2\\Wordpad2\\Wordpad2.csproj",
         "projectName": "Wordpad2",
-        "projectPath": "C:\\Users\\Helena\\source\\repos\\Petnica\\Wordpad2\\Wordpad2\\Wordpad2.csproj",
-        "packagesPath": "C:\\Users\\Helena\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Helena\\source\\repos\\Petnica\\Wordpad2\\Wordpad2\\obj\\",
+        "projectPath": "C:\\Users\\Korisnik\\source\\repos\\petnica1\\Wordpad2\\Wordpad2\\Wordpad2.csproj",
+        "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Korisnik\\source\\repos\\petnica1\\Wordpad2\\Wordpad2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Helena\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -55,7 +60,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }
