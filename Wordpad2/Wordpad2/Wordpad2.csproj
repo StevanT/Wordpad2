@@ -6,4 +6,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="images\bold.png" />
+    <None Remove="images\folder.png" />
+    <None Remove="images\italic.png" />
+    <None Remove="images\save.png" />
+    <None Remove="images\underline.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\bold.png" />
+    <Resource Include="images\folder.png" />
+    <Resource Include="images\italic.png" />
+    <Resource Include="images\save.png" />
+    <Resource Include="images\underline.png" />
+  </ItemGroup>
+
 </Project>
