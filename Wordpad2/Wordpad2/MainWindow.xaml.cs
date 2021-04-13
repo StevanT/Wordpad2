@@ -13,6 +13,10 @@ namespace Wordpad2
 {
 	public partial class MainWindow : Window
 	{
+		private object executedCommandsList;
+
+		public object myRichTextBox { get; private set; }
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -69,5 +73,33 @@ namespace Wordpad2
 		{
 			rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text);
 		}
+
+		private void foregroundToggle(object sender, RoutedEventArgs e)
+		{
+			if ((bool)btnForeColor.IsChecked)
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Red);
+			}
+			else
+            {
+				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Black);
+			}
+
+		}
+
+		private void backgroundToggle(object sender, RoutedEventArgs e)
+		{
+			if ((bool)btnBackColor.IsChecked)
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.BackgroundProperty, Brushes.Yellow);
+			}
+			else
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.BackgroundProperty, null);
+			}
+
+		}
 	}
 }
+	
+
