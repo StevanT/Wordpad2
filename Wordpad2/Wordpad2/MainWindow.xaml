@@ -1,7 +1,12 @@
 ﻿<Window x:Class="Wordpad2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+<<<<<<< HEAD
         Title="Wordpad2" Height="600" Width="800">
+=======
+
+        Title="Wordpad2" Height="300" Width="400">
+>>>>>>> origin/Nina
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
@@ -27,6 +32,7 @@
             </ToggleButton>
             <Separator />
             <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+<<<<<<< HEAD
             <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" FontStyle="Normal" />
             <Button Content="+" Width="16" Height="24" Click="Button_FontPlus"/>
             <Button Content="-" Width="16" Height="24" Click="Button_FontMinus"/>
@@ -35,6 +41,19 @@
 
         </ToolBar>
         <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" IsDocumentEnabled="True" />
+=======
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            <ToggleButton Click="foregroundToggle" Name="btnForeColor">
+                <Image Source="/images/crveno.png" Width="16" Height="16" />
+            </ToggleButton>
+            <ToggleButton Click="backgroundToggle" Name="btnBackColor">
+                <Image Source="/images/highlit.png" Width="16" Height="16" />
+            </ToggleButton>
+        </ToolBar>
+        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+        <Button x:Name="button" Content="Button" Width="Auto"/>
+        
+>>>>>>> origin/Nina
 
     </DockPanel>
 </Window>

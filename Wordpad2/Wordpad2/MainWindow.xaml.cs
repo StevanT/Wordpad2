@@ -15,10 +15,18 @@ namespace Wordpad2
 {
 	public partial class MainWindow : Window
 	{
+<<<<<<< HEAD
         public bool UseShellExecute { get; private set; }
 		OpenSaveExportClass openSaveExportClass = new OpenSaveExportClass();
 
         public MainWindow()
+=======
+		private object executedCommandsList;
+
+		public object myRichTextBox { get; private set; }
+
+		public MainWindow()
+>>>>>>> origin/Nina
 		{
 			InitializeComponent();
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -82,6 +90,7 @@ namespace Wordpad2
 				rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, cmbFontSize.Text);
 		}
 
+<<<<<<< HEAD
         private void Button_FontPlus(object sender, RoutedEventArgs e)
         {
 			if (!rtbEditor.Selection.IsEmpty)
@@ -142,3 +151,34 @@ namespace Wordpad2
 
     }
 }
+=======
+		private void foregroundToggle(object sender, RoutedEventArgs e)
+		{
+			if ((bool)btnForeColor.IsChecked)
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Red);
+			}
+			else
+            {
+				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Black);
+			}
+
+		}
+
+		private void backgroundToggle(object sender, RoutedEventArgs e)
+		{
+			if ((bool)btnBackColor.IsChecked)
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.BackgroundProperty, Brushes.Yellow);
+			}
+			else
+			{
+				rtbEditor.Selection.ApplyPropertyValue(Inline.BackgroundProperty, null);
+			}
+
+		}
+	}
+}
+	
+
+>>>>>>> origin/Nina
