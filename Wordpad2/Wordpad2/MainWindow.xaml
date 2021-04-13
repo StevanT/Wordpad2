@@ -14,6 +14,7 @@
             <Button Command="ApplicationCommands.Save">
                 <Image Source="/images/save.png" Width="16" Height="16" />
             </Button>
+            <Button Content="Export" Height="24" Click="Export_Executed"/>
             <Separator />
             <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
                 <Image Source="/images/bold.png" Width="16" Height="16" />
@@ -29,8 +30,12 @@
             <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" FontStyle="Normal" />
             <Button Content="+" Width="16" Height="24" Click="Button_FontPlus"/>
             <Button Content="-" Width="16" Height="24" Click="Button_FontMinus"/>
+            <Separator />
+            <Button Content="Hyperlink" Height="24" Click="Button_Hyperlink"/>
+
         </ToolBar>
-        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" IsDocumentEnabled="True" />
+
     </DockPanel>
 </Window>
 
