@@ -15,18 +15,16 @@ namespace Wordpad2
 {
 	public partial class MainWindow : Window
 	{
-<<<<<<< HEAD
+
         public bool UseShellExecute { get; private set; }
+
 		OpenSaveExportClass openSaveExportClass = new OpenSaveExportClass();
 
-        public MainWindow()
-=======
 		private object executedCommandsList;
 
 		public object myRichTextBox { get; private set; }
 
 		public MainWindow()
->>>>>>> origin/Nina
 		{
 			InitializeComponent();
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -58,6 +56,7 @@ namespace Wordpad2
 				btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
 				temp = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
 				btnUnderline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
+				temp = rtbEditor.Selection.GetPropertyValue(Inline.ForegroundProperty);
 
 				temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
 				cmbFontFamily.SelectedItem = temp;
@@ -67,6 +66,12 @@ namespace Wordpad2
 					cmbFontSize.Text = temp.ToString();
 				} catch(Exception exception) { }
 
+				if (rtbEditor.Selection.GetPropertyValue(Inline.ForegroundProperty).Equals(Brushes.Red))
+					btnForeColor.IsChecked = true;
+				else btnForeColor.IsChecked = false;
+				if (rtbEditor.Selection.GetPropertyValue(Inline.ForegroundProperty).Equals(Brushes.Yellow))
+					btnBackColor.IsChecked = true;
+				else btnBackColor.IsChecked = false;
 			}
             else
             {
@@ -90,7 +95,6 @@ namespace Wordpad2
 				rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, cmbFontSize.Text);
 		}
 
-<<<<<<< HEAD
         private void Button_FontPlus(object sender, RoutedEventArgs e)
         {
 			if (!rtbEditor.Selection.IsEmpty)
@@ -148,10 +152,6 @@ namespace Wordpad2
 				MessageBox.Show(exception.Message); }
 		}
 
-
-    }
-}
-=======
 		private void foregroundToggle(object sender, RoutedEventArgs e)
 		{
 			if ((bool)btnForeColor.IsChecked)
@@ -159,7 +159,7 @@ namespace Wordpad2
 				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Red);
 			}
 			else
-            {
+			{
 				rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, Brushes.Black);
 			}
 
@@ -179,6 +179,3 @@ namespace Wordpad2
 		}
 	}
 }
-	
-
->>>>>>> origin/Nina
