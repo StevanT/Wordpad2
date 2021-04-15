@@ -39,7 +39,6 @@ namespace Wordpad2
 					};
 					hlink.IsEnabled = true;
 					
-					MessageBox.Show(Convert.ToString(hlink.IsEnabled));
 					 
 				}
 				catch (Exception exception)

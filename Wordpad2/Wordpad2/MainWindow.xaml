@@ -41,7 +41,7 @@
             <Separator />
             <Button Content="Hyperlink" Height="24" Click="Button_Hyperlink"/>
         </ToolBar>
-        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" IsDocumentEnabled="true" />
     </DockPanel>
 </Window>
 

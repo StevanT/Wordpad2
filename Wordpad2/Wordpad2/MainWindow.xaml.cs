@@ -19,6 +19,7 @@ namespace Wordpad2
         public bool UseShellExecute { get; private set; }
 
 		OpenSaveExportClass openSaveExportClass = new OpenSaveExportClass();
+		HyperlinkCreation hlink = new HyperlinkCreation();
 
 		private object executedCommandsList;
 
@@ -44,6 +45,10 @@ namespace Wordpad2
 		private void Export_Executed(object sender, RoutedEventArgs e)
 		{
 			openSaveExportClass.Export_Executed(sender, e, rtbEditor);
+		}
+		private void Button_Hyperlink(object sender, RoutedEventArgs e)
+		{
+			hlink.Button_Hyperlink(sender, e, rtbEditor);
 		}
 
 		private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
@@ -113,44 +118,8 @@ namespace Wordpad2
 			}
 		}
 
-        private void Button_Hyperlink(object sender, RoutedEventArgs e)
-        {
-			if (!rtbEditor.Selection.IsEmpty)
-			{
-				string inputRead = new InputBox("Enter hyperlink:", "Add hyperlink", "").ShowDialog();
 
-				Hyperlink hlink = new Hyperlink();
-				TextRange tr = new TextRange(rtbEditor.Selection.Start, rtbEditor.Selection.End);
 
-				try
-				{
-					hlink.NavigateUri = new Uri(inputRead);
-					hlink = new Hyperlink(tr.Start, tr.End);
-					hlink.NavigateUri = new Uri(inputRead);
-					hlink.RequestNavigate += Hyperlink_RequestNavigate;
-					hlink.IsEnabled = true;
-				} catch (Exception exception)
-				{
-					MessageBox.Show(exception.Message);
-					
-				}
-
-			}
-		}
-
-		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-		{
-			try
-			{
-				Process pro = new Process();
-				UseShellExecute = true;
-				pro.StartInfo.FileName = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-				pro.StartInfo.Arguments = e.Uri.AbsoluteUri;
-				pro.Start();
-				e.Handled = true;
-			} catch(Exception exception) { 
-				MessageBox.Show(exception.Message); }
-		}
 
 		private void foregroundToggle(object sender, RoutedEventArgs e)
 		{
